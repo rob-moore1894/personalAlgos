@@ -99,3 +99,46 @@ const powersOf2 = (n) => {
 
 powersOf2(8);
 
+// Super Telephones
+
+// You communicate using an advanced system of cans on strings. Messages are passed between these cans, but most cans aren't connected to each other directly. Instead, cans pass messages between each other until the message reaches the intended recipient.
+
+// For some reason, though, some of these messages aren't ever reaching their intended recipient, and you suspect that some strings on cans are missing. 
+
+// You talk through each can and record the ID of each can and the IDs with which it can communicate directly. Each can has one or more cans with which it can communicate, and these lines of communication are bidirectional; if 8 says it can communicate with 11, then 11 will say it can communicate with 8.
+
+// You need to figure out how many cans are in the group that contains program ID 0.
+
+// 0 <-> 2
+// 1 <-> 1
+// 2 <-> 0, 3, 4
+// 3 <-> 2, 4
+// 4 <-> 2, 3, 6
+// 5 <-> 6
+// 6 <-> 4, 5
+
+// Can 0 by definition.
+// Can 2, directly connected to can 0.
+// Can 3 via can 2.
+// Can 4 via can 2.
+// Can 5 via cans 6, then 4, then 2.
+// Can 6 via cans 4, then 2.
+
+const fs = require('fs')
+
+const readFileRaw = async file => fs.readFileSync(file, 'utf-8')
+
+async function challenge() {
+    const data = (await readFileRaw("./input.txt")).split('\r\n')
+    const cans = data.map(line => line.split(">")[1].split(', ').map(Number))
+
+    let groups = []
+    function route(can){
+        if(groups.includes(can)) return 0
+        groups.push(can)
+        return cans[can].reduce((acc,val) => acc + route(val), 1)
+    }
+    const groupCount = cans.map((_,i) => route(i))[0]
+    return groupCount; 
+}
+challenge().then(console.log)
