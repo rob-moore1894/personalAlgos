@@ -48,3 +48,15 @@ num = 4562;
 let lastDigit = num % 10
 console.log(lastDigit); 
 console.log(num)
+
+function printSum(x){
+	var sum = 0; 
+	// code below
+	for(let i = 0; i<=x; i++){ 
+		sum += i
+		console.log("At: " + i + " , Sum:" + sum);
+	}
+	return sum; 
+}
+var y = printSum(255) // should print all the integers from 0 to 255 and with each integer, print the sum so far
+console.log(y) // should print 32640
