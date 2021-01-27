@@ -75,3 +75,53 @@ console.log(string.split(" ").join("").length);
 
 var string2 = `I get along and work well with just about anyone.  Oddly enough, I like to ride a motorcycle and watch pro wrestling - just not at the same time.`
 console.log(string2.length)
+
+// isUnique - Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures? 
+
+
+// centuryFromYear - Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc.
+
+const centuryFromYear = (year) => {
+    if(year <= 0){
+        console.log("Year must be greater than 0");
+    } else if(year <= 100){
+        console.log(1)
+    } else if(year % 100 == 0){
+        console.log(Math.trunc(year/100));
+    } else {
+        console.log(Math.trunc(year/100 + 1));
+    }
+}
+
+centuryFromYear(1985);
+centuryFromYear(-1);
+centuryFromYear(2000);
+centuryFromYear(2001);
+
+// Adjacent Elements Product - Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
+
+const adjacentElementsProduct = (inputArray) => {
+    if(inputArray.length > 1){
+        var product = inputArray[0] * inputArray[1];
+        for(let i = 1; i < inputArray.length; i++){
+            var nextProduct = inputArray[i] * inputArray[i+1];
+            if(nextProduct > product){
+                product = nextProduct; 
+            }
+        }
+        console.log(product);
+        return product; 
+    } else {
+        console.log(inputArray[0]);
+        return inputArray[0]; 
+    }
+}
+
+adjacentElementsProduct([1]);
+adjacentElementsProduct([1, 0, 1, 0, 1000]);
+
+function adjacentElementsProduct2(arr) {
+    return Math.max(...arr.slice(1).map((x,i)=>[x*arr[i]]))
+}
+console.log(adjacentElementsProduct2([1]));
+console.log(adjacentElementsProduct2([1, 0, 1, 0, 1000]));
