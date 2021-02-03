@@ -44,7 +44,7 @@ const reverseInteger = (num) => {
 
 console.log(reverseInteger(4562))
 
-num = 4562;
+let num = 4562;
 let lastDigit = num % 10
 console.log(lastDigit); 
 console.log(num)
@@ -125,3 +125,18 @@ function adjacentElementsProduct2(arr) {
 }
 console.log(adjacentElementsProduct2([1]));
 console.log(adjacentElementsProduct2([1, 0, 1, 0, 1000]));
+
+
+//Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having a non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+function makeArrayConsecutive2(statues){
+    statues.sort(); 
+    var missingNumbers = []; 
+    for(let i = statues[0]; i < statues[statues.length-1]; i++){
+        missingNumbers.push(i);
+    }
+    console.log(missingNumbers);
+    
+}
+
+makeArrayConsecutive2([6, 2, 3, 8]);
+
