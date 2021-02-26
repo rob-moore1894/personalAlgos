@@ -140,3 +140,22 @@ function makeArrayConsecutive2(statues){
 
 makeArrayConsecutive2([6, 2, 3, 8]);
 
+const RandomNumber = (max) => {
+    return Math.floor(Math.random() * Math.floor(max))
+}
+
+const userGuess = (n, compGuess) => {
+    if (n === compGuess) {
+        console.log(`Guessed ${compGuess} correctly!!`)
+    } else if (n > compGuess) {
+        console.log(`${n} is too high`); 
+    } else if (n < compGuess) {
+        console.log(`${n} is too low`);
+    }
+}
+
+var computerGuess = RandomNumber(100);
+console.log(computerGuess);
+
+userGuess(50, computerGuess);
+userGuess(8, computerGuess);
