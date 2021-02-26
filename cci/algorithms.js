@@ -213,3 +213,8 @@ module.exports = getTotalWordCount;
 // getTotalWordCount("cci/someStuff.txt", "cci/someMoreStuff.txt", callBack);
 
 
+const sum = (a, b) => {
+    return a + b;
+}
+
+console.log(sum(1,2,3,4));
