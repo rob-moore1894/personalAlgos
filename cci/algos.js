@@ -164,19 +164,23 @@ const doSearch = (array, targetValue) => {
     let min = 0;
     let max = array.length - 1;
     let guess;
+    let count = 0;
 
     while(max >= min){
+        count++;
         guess = Math.floor((min + max)/2);
-        console.log(`Index = ${guess}`, `Value of array at ${guess} = ${array[guess]}`)
+        console.log(`Index = ${guess}`, `\nValue of array at ${guess} = ${array[guess]}`);
         if(array[guess] === targetValue){
+            console.log(`${targetValue} found at Index ${guess}`)
+            count > 1 ? console.log(`It took ${count} guesses!`) : console.log(`It took ${count} guess!`)
             return guess;
         }
         else if(array[guess] < targetValue){
-            console.log(`${array[guess]} is too low`)
+            console.log(`${array[guess]} is too low`, `\n===================================`)
             min = guess + 1;
         }
         else {
-            console.log(`${array[guess]} is too high`)
+            console.log(`${array[guess]} is too high`, `\n===================================`)
             max = guess - 1;
         }
     }
@@ -185,5 +189,6 @@ const doSearch = (array, targetValue) => {
 
 var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
 
-var result = doSearch(primes, 73);
+var result = doSearch(primes, 41);
 console.log(`Found prime at index ${result}`);
+
