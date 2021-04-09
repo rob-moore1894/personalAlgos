@@ -192,3 +192,10 @@ var primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61
 var result = doSearch(primes, 41);
 console.log(`Found prime at index ${result}`);
 
+// Maximum Pairwise Product - Given a sequence of non-negative integers a0,…,an−1, find the maximum pairwise product, that is, the largest integer that can be obtained by multiplying two different elements from the sequence (or, more formally, max0≤i≠j≤n−1aiaj). Different elements here mean ai and aj with i≠j (it can be the case that ai=aj).
+
+const maxPairwiseProduct(n, array){
+    if(n < 2){
+        console.log("Cannot ")
+    }
+}
